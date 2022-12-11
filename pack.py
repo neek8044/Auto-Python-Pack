@@ -1,25 +1,26 @@
 import os
-from colorama import Fore, Style
+try:
+    from colorama import Fore, Style
+except ImportError:
+    print("Colorama not installed. Do 'pip3 install colorama' to run")
 
 F = Fore # Changes the foreground color of the text (F.COLOR)
 SR = Style.RESET_ALL # Resets any color applied to the text
 
 if __name__ == '__main__':
-    os.system('cls >nul')
-
     # installing and/or upgrading wheel and setuptools via pip
     print(f'{F.CYAN}--> Updating libraries...{SR}')
-    os.system('pip install wheel setuptools >nul')
-    os.system('pip install wheel --upgrade >nul')
-    os.system('pip install setuptools --upgrade >nul')
+    os.system('pip3 install wheel setuptools >nul')
+    os.system('pip3 install wheel --upgrade >nul')
+    os.system('pip3 install setuptools --upgrade >nul')
 
     print(f"{F.CYAN}--> Building packages with 'setup.py'...{SR}")
     # building tar package with sdist
-    os.system('python setup.py sdist')
+    os.system('python3 setup.py sdist')
     print(f"{F.CYAN}--> Created tar file{SR}")
 
     # building whl package with bdist_wheel
-    os.system('python setup.py bdist_wheel')
+    os.system('python3 setup.py bdist_wheel')
     print(f"{F.CYAN}--> Created whl file{SR}")
 
     print("")
