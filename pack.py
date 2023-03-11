@@ -2,7 +2,7 @@ import os
 try:
     from colorama import Fore, Style
 except ImportError:
-    print("Colorama not installed. Do 'pip3 install colorama' to run")
+    print("Module 'colorama' is not available. Run 'pip3 install colorama' to install it.")
 
 F = Fore # Changes the foreground color of the text (F.COLOR)
 SR = Style.RESET_ALL # Resets any color applied to the text
@@ -14,8 +14,8 @@ if __name__ == '__main__':
     os.system('pip3 install wheel --upgrade >nul')
     os.system('pip3 install setuptools --upgrade >nul')
 
-    print(f"{F.CYAN}--> Building packages with 'setup.py'...{SR}")
     # building tar package with sdist
+    print(f"{F.CYAN}--> Building packages with 'setup.py'...{SR}")
     os.system('python3 setup.py sdist')
     print(f"{F.CYAN}--> Created tar file{SR}")
 
@@ -23,10 +23,9 @@ if __name__ == '__main__':
     os.system('python3 setup.py bdist_wheel')
     print(f"{F.CYAN}--> Created whl file{SR}")
 
-    print("")
-    print(f"{F.CYAN}Building complete. Files can be found under the local 'dist/' folder{SR}")
+    print(f"\n{F.CYAN}Building complete. Files can be found under the local 'dist/' folder{SR}")
 
-    input(f'{F.CYAN}Press ENTER to exit.{SR}')
 else:
     print(f"{F.CYAN}--> Script 'build.py' was called but not run as 'main'{SR}")
-    input(f'{F.CYAN}--> Press ENTER to exit.{SR}')
+    
+input(f'{F.CYAN}Press ENTER to exit.{SR}')
